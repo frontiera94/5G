@@ -1,6 +1,6 @@
-clear all;
+fclear all;
 close all;
-
+fdsfsfsd
 %% CREATE SYMBOL
 
 M = 2^8;                                                        %number of packets
