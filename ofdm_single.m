@@ -1,6 +1,6 @@
 clear all;
 close all;
-
+prova
 %% CREATE A CHANNEL WITH UNITARY POWER
 power = 0;
 for i=1:10000
