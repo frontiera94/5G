@@ -34,6 +34,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: update issue
         env:
           JIRA_SERVER_URL: ${{ secrets.jira_server_url }}
           JIRA_USERNAME: ${{ secrets.jira_username }}
