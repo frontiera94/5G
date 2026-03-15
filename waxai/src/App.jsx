@@ -2,6 +2,7 @@ import Header from './components/Header';
 import LocationInput from './components/LocationInput';
 import WeatherCard from './components/WeatherCard';
 import WaxCard from './components/WaxCard';
+import SnowStateCard from './components/SnowStateCard';
 import EmptyState from './components/EmptyState';
 import { useWeather } from './useWeather';
 import { getWaxRecommendation } from './waxEngine';
@@ -11,6 +12,7 @@ import { useState } from 'react';
 export default function App() {
   const {
     weather,
+    snowState,
     locationName,
     loading,
     error,
@@ -74,6 +76,7 @@ export default function App() {
               onRefresh={handleRefresh}
               loading={loading}
             />
+            <SnowStateCard snowState={snowState} />
             {recommendation && <WaxCard recommendation={recommendation} />}
           </>
         )}
