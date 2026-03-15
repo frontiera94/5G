@@ -23,54 +23,54 @@ export function getWaxRecommendation(weather) {
   let gripNotes = [];
 
   if (temperature <= -12) {
-    gripWax = 'Special Green (Polar)';
+    gripWax = 'Verde Speciale (Polare)';
     gripColor = '#16a34a';
-    gripNotes.push('Very cold, hard snow. Apply a thin, hard layer.');
+    gripNotes.push('Neve molto fredda e dura. Applica uno strato sottile e duro.');
   } else if (temperature <= -7) {
-    gripWax = 'Green (Extra Special Green)';
+    gripWax = 'Verde (Verde Extra Speciale)';
     gripColor = '#15803d';
-    gripNotes.push('Cold, dry snow with fine crystals. Apply hard and smooth.');
+    gripNotes.push('Neve fredda e secca con cristalli fini. Applica duro e uniforme.');
   } else if (temperature <= -2) {
-    gripWax = 'Blue (Violet Blue)';
+    gripWax = 'Blu (Blu Violetto)';
     gripColor = '#1d4ed8';
-    gripNotes.push('Classic cold conditions. 2–3 thin layers work best.');
+    gripNotes.push('Condizioni fredde classiche. Meglio 2–3 strati sottili.');
   } else if (temperature <= 0) {
-    gripWax = 'Violet';
+    gripWax = 'Violetto';
     gripColor = '#7c3aed';
-    gripNotes.push('Transitional zone. Test on skis before a full lap.');
+    gripNotes.push('Zona di transizione. Testa sugli sci prima di un giro completo.');
     if (humidity > 75) {
-      gripWax = 'Violet (Wet)';
-      gripNotes.push('High humidity – opt for the wet variant of violet.');
+      gripWax = 'Violetto (Bagnato)';
+      gripNotes.push('Alta umidità – scegli la variante bagnata del violetto.');
       gripConfidence = 'medium';
     }
   } else if (temperature <= 2) {
-    gripWax = 'Red (Special Red)';
+    gripWax = 'Rosso (Rosso Speciale)';
     gripColor = '#dc2626';
-    gripNotes.push('Wet, warm snow. Cork vigorously for best adhesion.');
+    gripNotes.push('Neve bagnata e calda. Strofina vigorosamente per una migliore adesione.');
     if (isSnowing && precipitation > 0.5) {
-      gripNotes.push('Active snowfall – re-apply more frequently.');
+      gripNotes.push('Nevicata attiva – riapplica più frequentemente.');
       gripConfidence = 'medium';
     }
   } else if (temperature <= 5) {
-    gripWax = 'Yellow (Silver)';
+    gripWax = 'Giallo (Argento)';
     gripColor = '#ca8a04';
-    gripNotes.push('Very wet, slushy conditions. Apply thick and re-apply often.');
+    gripNotes.push('Condizioni molto bagnate e fanghose. Applica spesso e riapplica frequentemente.');
     gripConfidence = 'medium';
   } else {
-    gripWax = 'Klister (Universal)';
+    gripWax = 'Klister (Universale)';
     gripColor = '#9a3412';
-    gripNotes.push('Above freezing – klister required. Clean skis after use.');
+    gripNotes.push('Sopra zero – klister necessario. Pulisci gli sci dopo l\'uso.');
     gripConfidence = 'low';
     if (temperature > 8) {
-      gripNotes.push('Consider a klister spray for convenience at this warmth.');
+      gripNotes.push('Considera uno spray klister per comodità con queste temperature.');
     }
   }
 
   // Klister override: refrozen wet snow is sticky and needs klister even at cold temps
   if (temperature <= 0 && temperature >= -4 && humidity > 90 && precipitation > 1) {
-    gripWax = 'Klister (Blue Klister)';
+    gripWax = 'Klister (Klister Blu)';
     gripColor = '#1e40af';
-    gripNotes.push('Very high humidity and precipitation → blue klister recommended despite cold temp.');
+    gripNotes.push('Umidità molto alta e precipitazioni → klister blu consigliato nonostante la temperatura fredda.');
     gripConfidence = 'medium';
   }
 
@@ -81,25 +81,25 @@ export function getWaxRecommendation(weather) {
   let glideNotes = [];
 
   if (temperature <= -10) {
-    glideWax = 'Cold Glide (LF Blue / CH6)';
+    glideWax = 'Scorrimento Freddo (LF Blu / CH6)';
     glideColor = '#1d4ed8';
-    glideNotes.push('Low fluorocarbon blue wax for cold, hard tracks.');
+    glideNotes.push('Cera blu a basso fluoro per piste fredde e dure.');
   } else if (temperature <= -4) {
-    glideWax = 'Universal Glide (LF Violet / CH7)';
+    glideWax = 'Scorrimento Universale (LF Violetto / CH7)';
     glideColor = '#7c3aed';
-    glideNotes.push('All-around violet glide wax. Iron at 120 °C.');
+    glideNotes.push('Cera da scorrimento violetta versatile. Ferro a 120 °C.');
   } else if (temperature <= 2) {
-    glideWax = 'Warm Glide (LF Red / CH8)';
+    glideWax = 'Scorrimento Caldo (LF Rosso / CH8)';
     glideColor = '#dc2626';
-    glideNotes.push('Soft red glide wax for warm or humid conditions.');
+    glideNotes.push('Cera da scorrimento rossa morbida per condizioni calde o umide.');
     if (humidity > 80) {
-      glideWax = 'Wet Glide (HF Red / CH8 Wet)';
-      glideNotes.push('High humidity – use high-fluorocarbon or wet compound.');
+      glideWax = 'Scorrimento Bagnato (HF Rosso / CH8 Bagnato)';
+      glideNotes.push('Alta umidità – usa un composto ad alto fluoro o bagnato.');
     }
   } else {
-    glideWax = 'Yellow Wet Glide (HF Yellow / CH10)';
+    glideWax = 'Scorrimento Bagnato Giallo (HF Giallo / CH10)';
     glideColor = '#ca8a04';
-    glideNotes.push('Slushy / very wet snow – use a yellow or silver wet glide.');
+    glideNotes.push('Neve fanghosa / molto bagnata – usa una sciolina gialla o argento per il bagnato.');
   }
 
   // ─── GENERAL NOTES ─────────────────────────────────────────────────────────
@@ -107,20 +107,20 @@ export function getWaxRecommendation(weather) {
   const generalNotes = [];
 
   if (isSnowing) {
-    generalNotes.push('Active snowfall may change conditions quickly – reassess after 1 hour.');
+    generalNotes.push('La nevicata attiva può cambiare rapidamente le condizioni – rivaluta dopo 1 ora.');
   }
   if (humidity >= 85 && temperature < 0) {
-    generalNotes.push('Near-saturated humidity: snow crystals are rounded and wet-acting. Go one wax warmer.');
+    generalNotes.push('Umidità quasi satura: i cristalli di neve sono arrotondati e si comportano come bagnato. Usa una cera più calda.');
   }
   if (temperature >= -1 && temperature <= 1) {
-    generalNotes.push('Transition zone (±1 °C): bring both violet and red grip wax in your pack.');
+    generalNotes.push('Zona di transizione (±1 °C): porta sia la sciolina violetta che quella rossa nello zaino.');
   }
 
   // ─── TECHNIQUE TIP ─────────────────────────────────────────────────────────
 
-  let technique = 'Classic technique – grip zone is critical today.';
+  let technique = 'Tecnica classica – la zona di presa è fondamentale oggi.';
   if (temperature > 3 || (temperature > 0 && humidity > 85)) {
-    technique = "Wet conditions: skate skiing avoids grip issues entirely if that's an option.";
+    technique = "Condizioni bagnate: il pattinaggio evita completamente i problemi di presa se è un'opzione.";
   }
 
   // ─── CONFIDENCE LEVEL ──────────────────────────────────────────────────────
@@ -133,7 +133,7 @@ export function getWaxRecommendation(weather) {
 
   if (nearTransition && gripConfidence === 'high') {
     gripConfidence = 'medium';
-    gripNotes.push('Near a transition temperature – test on a short loop first.');
+    gripNotes.push('Vicino a una temperatura di transizione – testa prima su un piccolo giro.');
   }
 
   const confidenceLevels = { high: 3, medium: 2, low: 1 };
@@ -160,16 +160,16 @@ export function getWaxRecommendation(weather) {
  */
 function describeConditions({ temperature, humidity, isSnowing, weatherCode }) {
   const parts = [];
-  if (temperature <= -10) parts.push('Polar cold');
-  else if (temperature <= -4) parts.push('Cold');
-  else if (temperature <= 0) parts.push('Freezing');
-  else if (temperature <= 4) parts.push('Near freezing');
-  else parts.push('Above freezing');
+  if (temperature <= -10) parts.push('Freddo polare');
+  else if (temperature <= -4) parts.push('Freddo');
+  else if (temperature <= 0) parts.push('Gelo');
+  else if (temperature <= 4) parts.push('Vicino al gelo');
+  else parts.push('Sopra zero');
 
-  if (isSnowing) parts.push('with active snowfall');
-  else if (humidity > 85) parts.push('with very high humidity');
-  else if (humidity > 65) parts.push('with moderate humidity');
-  else parts.push('and dry air');
+  if (isSnowing) parts.push('con nevicata attiva');
+  else if (humidity > 85) parts.push('con umidità molto alta');
+  else if (humidity > 65) parts.push('con umidità moderata');
+  else parts.push('e aria secca');
 
   return parts.join(' ');
 }
@@ -179,13 +179,13 @@ function describeConditions({ temperature, humidity, isSnowing, weatherCode }) {
  * https://open-meteo.com/en/docs#weathervariables
  */
 export function parseWeatherCode(code) {
-  if (code === 0) return { label: 'Clear sky', icon: 'sun', isSnowing: false };
-  if (code <= 3) return { label: 'Partly cloudy', icon: 'cloud-sun', isSnowing: false };
-  if (code <= 49) return { label: 'Foggy', icon: 'cloud', isSnowing: false };
-  if (code <= 59) return { label: 'Drizzle', icon: 'cloud-drizzle', isSnowing: false };
-  if (code <= 69) return { label: 'Rain', icon: 'cloud-rain', isSnowing: false };
-  if (code <= 79) return { label: 'Snow', icon: 'cloud-snow', isSnowing: true };
-  if (code <= 84) return { label: 'Rain showers', icon: 'cloud-rain', isSnowing: false };
-  if (code <= 94) return { label: 'Snow showers', icon: 'cloud-snow', isSnowing: true };
-  return { label: 'Thunderstorm', icon: 'cloud-lightning', isSnowing: false };
+  if (code === 0) return { label: 'Cielo sereno', icon: 'sun', isSnowing: false };
+  if (code <= 3) return { label: 'Parzialmente nuvoloso', icon: 'cloud-sun', isSnowing: false };
+  if (code <= 49) return { label: 'Nebbioso', icon: 'cloud', isSnowing: false };
+  if (code <= 59) return { label: 'Pioggerella', icon: 'cloud-drizzle', isSnowing: false };
+  if (code <= 69) return { label: 'Pioggia', icon: 'cloud-rain', isSnowing: false };
+  if (code <= 79) return { label: 'Neve', icon: 'cloud-snow', isSnowing: true };
+  if (code <= 84) return { label: 'Acquazzoni', icon: 'cloud-rain', isSnowing: false };
+  if (code <= 94) return { label: 'Rovesci di neve', icon: 'cloud-snow', isSnowing: true };
+  return { label: 'Temporale', icon: 'cloud-lightning', isSnowing: false };
 }
