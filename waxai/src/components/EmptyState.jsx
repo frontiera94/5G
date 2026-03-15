@@ -10,17 +10,17 @@ export default function EmptyState() {
         />
         <MapPin className="absolute bottom-0 right-0 w-8 h-8 text-electric-500" />
       </div>
-      <h2 className="text-xl font-bold text-ice-100 mb-2">Ready to Wax?</h2>
+      <h2 className="text-xl font-bold text-ice-100 mb-2">Pronto a Sciolinare?</h2>
       <p className="text-ice-300/60 text-sm leading-relaxed max-w-xs">
-        Enter a city or use your device location to get real-time grip and glide wax
-        recommendations for today's conditions.
+        Inserisci una città o usa la posizione del dispositivo per ricevere consigli in tempo reale
+        sulla sciolina da presa e da scorrimento per le condizioni di oggi.
       </p>
 
       <div className="mt-8 grid grid-cols-3 gap-3 w-full max-w-xs">
         {[
-          { temp: '−12°', wax: 'Green', color: '#16a34a' },
-          { temp: '−2°', wax: 'Blue', color: '#1d4ed8' },
-          { temp: '+2°', wax: 'Red', color: '#dc2626' },
+          { temp: '−12°', wax: 'Verde', color: '#16a34a' },
+          { temp: '−2°', wax: 'Blu', color: '#1d4ed8' },
+          { temp: '+2°', wax: 'Rossa', color: '#dc2626' },
         ].map(({ temp, wax, color }) => (
           <div
             key={wax}

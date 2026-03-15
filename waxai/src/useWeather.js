@@ -30,7 +30,7 @@ export function useWeather() {
       });
 
       const res = await fetch(`${BASE_URL}?${params}`);
-      if (!res.ok) throw new Error(`Weather API error: ${res.status}`);
+      if (!res.ok) throw new Error(`Errore API meteo: ${res.status}`);
       const data = await res.json();
       const c = data.current;
 
@@ -52,7 +52,7 @@ export function useWeather() {
       });
       if (name) setLocationName(name);
     } catch (err) {
-      setError(err.message || 'Failed to fetch weather data.');
+      setError(err.message || 'Impossibile ottenere i dati meteo.');
     } finally {
       setLoading(false);
     }
@@ -65,39 +65,39 @@ export function useWeather() {
       const geoRes = await fetch(
         `${GEO_URL}?name=${encodeURIComponent(city)}&count=1&language=en&format=json`
       );
-      if (!geoRes.ok) throw new Error('Geocoding error.');
+      if (!geoRes.ok) throw new Error('Errore di geocodifica.');
       const geoData = await geoRes.json();
 
       if (!geoData.results || geoData.results.length === 0) {
-        throw new Error(`No location found for "${city}". Try a different city name.`);
+        throw new Error(`Nessuna località trovata per "${city}". Prova un altro nome di città.`);
       }
 
       const { latitude, longitude, name, country, admin1 } = geoData.results[0];
       const displayName = [name, admin1, country].filter(Boolean).join(', ');
       await fetchWeatherByCoords(latitude, longitude, displayName);
     } catch (err) {
-      setError(err.message || 'Failed to find location.');
+      setError(err.message || 'Impossibile trovare la posizione.');
       setLoading(false);
     }
   }, [fetchWeatherByCoords]);
 
   const fetchWeatherByGPS = useCallback(() => {
     if (!navigator.geolocation) {
-      setError('Geolocation is not supported by your browser.');
+      setError('La geolocalizzazione non è supportata dal tuo browser.');
       return;
     }
     setLoading(true);
     setError(null);
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        fetchWeatherByCoords(pos.coords.latitude, pos.coords.longitude, 'Your Location');
+        fetchWeatherByCoords(pos.coords.latitude, pos.coords.longitude, 'La Tua Posizione');
       },
       (err) => {
         setLoading(false);
         if (err.code === 1) {
-          setError('Location access denied. Please allow location or enter a city manually.');
+          setError('Accesso alla posizione negato. Consenti la posizione o inserisci una città manualmente.');
         } else {
-          setError('Unable to determine your location. Please enter a city.');
+          setError('Impossibile determinare la tua posizione. Inserisci una città.');
         }
       },
       { timeout: 10000 }

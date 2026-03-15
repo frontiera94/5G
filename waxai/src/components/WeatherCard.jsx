@@ -30,14 +30,14 @@ export default function WeatherCard({ weather, locationName, onRefresh, loading 
       {/* Location bar */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
         <div>
-          <p className="text-xs text-ice-300/60 font-medium uppercase tracking-widest">Current Conditions</p>
+          <p className="text-xs text-ice-300/60 font-medium uppercase tracking-widest">Condizioni Attuali</p>
           <p className="text-white font-semibold text-sm mt-0.5">{locationName}</p>
         </div>
         <button
           onClick={onRefresh}
           disabled={loading}
           className="p-2 rounded-lg text-ice-300/60 hover:text-electric-400 hover:bg-white/5 transition"
-          aria-label="Refresh weather"
+          aria-label="Aggiorna meteo"
         >
           <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
         </button>
@@ -51,7 +51,7 @@ export default function WeatherCard({ weather, locationName, onRefresh, loading 
           </p>
           <p className="text-ice-300/70 text-sm mt-1">{weather.weatherLabel}</p>
           <p className="text-ice-300/50 text-xs mt-0.5">
-            Feels like {Math.round(weather.feelsLike)}°C
+            Percepita {Math.round(weather.feelsLike)}°C
           </p>
         </div>
         <WeatherIcon
@@ -66,24 +66,24 @@ export default function WeatherCard({ weather, locationName, onRefresh, loading 
       <div className="grid grid-cols-3 gap-px bg-white/5">
         <Stat
           icon={<Droplets className="w-4 h-4 text-blue-400" />}
-          label="Humidity"
+          label="Umidità"
           value={`${weather.humidity}%`}
         />
         <Stat
           icon={<Wind className="w-4 h-4 text-teal-400" />}
-          label="Wind"
+          label="Vento"
           value={`${weather.windSpeed} m/s`}
         />
         <Stat
           icon={<CloudSnow className="w-4 h-4 text-ice-300" />}
-          label="Precip"
+          label="Precip."
           value={`${weather.precipitation} mm`}
         />
       </div>
 
       {/* Fetched time */}
       <p className="text-center text-ice-300/30 text-xs py-2">
-        Updated {weather.fetchedAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+        Aggiornato {weather.fetchedAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
       </p>
     </section>
   );

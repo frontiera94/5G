@@ -19,7 +19,7 @@ export default function LocationInput({ onCitySearch, onGPSSearch, loading }) {
             type="text"
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            placeholder="Enter city or resort…"
+            placeholder="Inserisci città o stazione…"
             disabled={loading}
             className="w-full h-14 pl-10 pr-4 rounded-xl bg-navy-700 border border-white/10 text-white placeholder-ice-300/40
               text-base focus:outline-none focus:ring-2 focus:ring-electric-500 focus:border-transparent
@@ -49,7 +49,7 @@ export default function LocationInput({ onCitySearch, onGPSSearch, loading }) {
         ) : (
           <MapPin className="w-5 h-5" />
         )}
-        Use My Location
+        Usa la Mia Posizione
       </button>
     </section>
   );

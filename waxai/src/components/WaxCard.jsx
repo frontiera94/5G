@@ -4,21 +4,21 @@ import { useState } from 'react';
 const CONFIDENCE_CONFIG = {
   high: {
     icon: CheckCircle2,
-    label: 'High Confidence',
+    label: 'Alta Affidabilità',
     color: 'text-emerald-400',
     bg: 'bg-emerald-500/10',
     border: 'border-emerald-500/30',
   },
   medium: {
     icon: AlertCircle,
-    label: 'Test First',
+    label: 'Testa Prima',
     color: 'text-amber-400',
     bg: 'bg-amber-500/10',
     border: 'border-amber-500/30',
   },
   low: {
     icon: AlertTriangle,
-    label: 'Uncertain',
+    label: 'Incerto',
     color: 'text-red-400',
     bg: 'bg-red-500/10',
     border: 'border-red-500/30',
@@ -39,7 +39,7 @@ export default function WaxCard({ recommendation }) {
         <div className="flex items-start justify-between gap-3">
           <div>
             <p className="text-xs text-electric-400 font-semibold uppercase tracking-widest">
-              Wax Recommendation
+              Consiglio Sciolina
             </p>
             <p className="text-ice-100/70 text-sm mt-1">{recommendation.conditions}</p>
           </div>
@@ -55,25 +55,25 @@ export default function WaxCard({ recommendation }) {
 
       {/* GRIP WAX */}
       <WaxSection
-        title="Grip Wax"
+        title="Sciolina da Presa"
         waxName={recommendation.gripWax}
         waxColor={recommendation.gripColor}
         notes={recommendation.gripNotes}
         expanded={gripExpanded}
         onToggle={() => setGripExpanded((v) => !v)}
-        badge="Kick Zone"
+        badge="Zona di Spinta"
         badgeColor="bg-violet-500/20 text-violet-300 border-violet-500/30"
       />
 
       {/* GLIDE WAX */}
       <WaxSection
-        title="Glide Wax"
+        title="Sciolina da Scorrimento"
         waxName={recommendation.glideWax}
         waxColor={recommendation.glideColor}
         notes={recommendation.glideNotes}
         expanded={glideExpanded}
         onToggle={() => setGlideExpanded((v) => !v)}
-        badge="Tip & Tail"
+        badge="Punta e Coda"
         badgeColor="bg-teal-500/20 text-teal-300 border-teal-500/30"
         divider
       />
@@ -93,7 +93,7 @@ export default function WaxCard({ recommendation }) {
       {/* Technique tip */}
       <div className="px-5 py-3 bg-electric-500/5 border-t border-electric-500/20">
         <p className="text-electric-400 text-xs font-semibold uppercase tracking-widest mb-1">
-          Technique Tip
+          Consiglio Tecnica
         </p>
         <p className="text-ice-100/80 text-sm">{recommendation.technique}</p>
       </div>

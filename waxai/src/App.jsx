@@ -49,7 +49,7 @@ export default function App() {
             <button
               onClick={() => setDismissedError(error)}
               className="text-red-400/60 hover:text-red-300 transition shrink-0"
-              aria-label="Dismiss"
+              aria-label="Chiudi"
             >
               <X className="w-4 h-4" />
             </button>
@@ -79,7 +79,7 @@ export default function App() {
         )}
 
         <p className="text-center text-ice-300/25 text-xs px-4 mt-6">
-          Weather data from{' '}
+          Dati meteo da{' '}
           <a
             href="https://open-meteo.com"
             target="_blank"
@@ -88,7 +88,7 @@ export default function App() {
           >
             Open-Meteo
           </a>
-          . Wax choices are advisory — always test on snow.
+          . I consigli sulla sciolina sono indicativi — testa sempre sulla neve.
         </p>
       </main>
     </div>
