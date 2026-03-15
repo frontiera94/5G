@@ -1,11 +1,13 @@
 import { useState, useCallback } from 'react';
 import { parseWeatherCode } from './waxEngine';
+import { analyzeSnowState } from './snowState';
 
 const BASE_URL = 'https://api.open-meteo.com/v1/forecast';
 const GEO_URL = 'https://geocoding-api.open-meteo.com/v1/search';
 
 export function useWeather() {
   const [weather, setWeather] = useState(null);
+  const [snowState, setSnowState] = useState(null);
   const [locationName, setLocationName] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -25,6 +27,9 @@ export function useWeather() {
           'wind_speed_10m',
           'apparent_temperature',
         ].join(','),
+        hourly: ['snowfall', 'temperature_2m'].join(','),
+        past_days: 14,
+        forecast_days: 1,
         timezone: 'auto',
         wind_speed_unit: 'ms',
       });
@@ -33,6 +38,8 @@ export function useWeather() {
       if (!res.ok) throw new Error(`Errore API meteo: ${res.status}`);
       const data = await res.json();
       const c = data.current;
+
+      setSnowState(analyzeSnowState(data.hourly));
 
       const { isSnowing, label, icon } = parseWeatherCode(c.weather_code);
 
@@ -104,5 +111,5 @@ export function useWeather() {
     );
   }, [fetchWeatherByCoords]);
 
-  return { weather, locationName, loading, error, fetchWeatherByCity, fetchWeatherByGPS };
+  return { weather, snowState, locationName, loading, error, fetchWeatherByCity, fetchWeatherByGPS };
 }
