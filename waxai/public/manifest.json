@@ -1,0 +1,26 @@
+{
+  "name": "WaxAI – Ski Wax Advisor",
+  "short_name": "WaxAI",
+  "description": "Real-time grip and glide wax recommendations for cross-country skiers.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0f1e",
+  "theme_color": "#0a0f1e",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["sports", "weather", "utilities"],
+  "screenshots": []
+}

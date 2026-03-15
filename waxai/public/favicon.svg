@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#0d1530"/>
+  <!-- Snowflake icon -->
+  <g transform="translate(32,32)" stroke="#38bdf8" stroke-width="3.84" stroke-linecap="round" fill="none">
+    <line x1="0" y1="-14.4" x2="0" y2="14.4"/>
+    <line x1="-14.4" y1="0" x2="14.4" y2="0"/>
+    <line x1="-10.1808" y1="-10.1808" x2="10.1808" y2="10.1808"/>
+    <line x1="10.1808" y1="-10.1808" x2="-10.1808" y2="10.1808"/>
+    <!-- Branches -->
+    <line x1="-5.12" y1="-6.720000000000001" x2="0" y2="-14.4"/>
+    <line x1="5.12" y1="-6.720000000000001" x2="0" y2="-14.4"/>
+    <line x1="-5.12" y1="6.720000000000001" x2="0" y2="14.4"/>
+    <line x1="5.12" y1="6.720000000000001" x2="0" y2="14.4"/>
+  </g>
+</svg>
